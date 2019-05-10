@@ -17,7 +17,9 @@
 		"@oclif/command": "^1",
 		"@oclif/config": "^1",
 		"@oclif/plugin-help": "^2",
-		"esm": "^3.2.22"
+		"chalk": "^2.4.2",
+		"esm": "^3.2.22",
+		"inquirer": "^6.3.1"
 	},
 	"devDependencies": {
 		"rimraf": "^2.6.3"

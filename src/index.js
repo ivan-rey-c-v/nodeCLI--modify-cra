@@ -1,20 +1,20 @@
 import { Command, flags } from '@oclif/command'
-import test from './test'
-
-// ESM works with this file
-test()
+import chalk from 'chalk'
+import start from './start'
 
 class CLI extends Command {
 	async run() {
 		const { flags } = this.parse(CLI)
-		const name = flags.name || 'world'
-		this.log(`hello ${name} from .\\src\\index.js`)
+		const hasDefaultFlag = flags.default
+
+		// ESM export works with this file
+		start(hasDefaultFlag)
 	}
 }
 
 CLI.description = `Describe the command here
-...
-Extra documentation goes here
+
+	${chalk.green('Modify create react apps.')}
 `
 
 CLI.flags = {
@@ -22,7 +22,11 @@ CLI.flags = {
 	version: flags.version({ char: 'v' }),
 	// add --help flag to show CLI version
 	help: flags.help({ char: 'h' }),
-	name: flags.string({ char: 'n', description: 'name to print' })
+	default: flags.boolean({
+		char: 'd',
+		description: 'Include all modifications',
+		default: false
+	})
 }
 
 // - it seems "export default CLI" does not work here (just this file)
