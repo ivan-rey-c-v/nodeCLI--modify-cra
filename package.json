@@ -1,0 +1,38 @@
+{
+  "name": "@ircv/modify-cra",
+  "description": "A node CLI for modifying create react apps using the oclif.",
+  "version": "0.0.1",
+  "author": "ivan.rey.c.v <i ivan.rey.c.v@gmail.com>",
+  "bin": {
+    "@ircv/modify-cra": "./bin/run"
+  },
+  "bugs": "https://github.com/ivan-rey-c-v/modify-cra/issues",
+  "dependencies": {
+    "@oclif/command": "^1",
+    "@oclif/config": "^1",
+    "@oclif/plugin-help": "^2"
+  },
+  "devDependencies": {
+    "rimraf": "^2.6.3"
+  },
+  "engines": {
+    "node": ">=8.0.0"
+  },
+  "files": [
+    "/bin",
+    "/src"
+  ],
+  "homepage": "https://github.com/ivan-rey-c-v/modify-cra",
+  "keywords": [
+    "oclif"
+  ],
+  "license": "MIT",
+  "main": "src/index.js",
+  "oclif": {
+    "bin": "@ircv/modify-cra"
+  },
+  "repository": "ivan-rey-c-v/modify-cra",
+  "scripts": {
+    "test": "echo NO TESTS"
+  }
+}
