@@ -1,4 +1,8 @@
 #!/usr/bin/env node
 
-require('..').run()
-.catch(require('@oclif/errors/handle'))
+// enables using the import in the files
+require = require('esm')(module /*, options*/)
+
+require('..')
+	.run()
+	.catch(require('@oclif/errors/handle'))
