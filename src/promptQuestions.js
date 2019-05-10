@@ -29,7 +29,7 @@ const prompt = async hasDefaultFlag => {
 		name: 'modifications',
 		message: `
 
-			${chalk.green.inverse('--- What MODS to include? ---')}
+			${chalk.black.bgWhiteBright.bold('--- What MODS to include? ---')}
 
 		`,
 		choices: mods
