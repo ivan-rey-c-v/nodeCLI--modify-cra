@@ -15,7 +15,7 @@ const prompt = async hasDefaultFlag => {
 		}
 	]
 
-	const mods = ['styled-component', 'react-router-dom']
+	const mods = ['styled-component', 'context-store', 'react-router-dom']
 
 	if (hasDefaultFlag) {
 		const answers = await inquirer.prompt(questions)
