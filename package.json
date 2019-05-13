@@ -21,7 +21,8 @@
 		"esm": "^3.2.22",
 		"inquirer": "^6.3.1",
 		"listr": "^0.14.3",
-		"ncp": "^2.0.0"
+		"ncp": "^2.0.0",
+		"replace-in-file": "^4.0.0"
 	},
 	"devDependencies": {
 		"rimraf": "^2.6.3"
