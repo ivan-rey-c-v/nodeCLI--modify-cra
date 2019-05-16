@@ -2,7 +2,7 @@ import fs from 'fs'
 import path from 'path'
 import ncp from 'ncp'
 import { promisify } from 'util'
-//import updateAppFile from './updateAppFile'
+import updateAppFile from './updateAppFile'
 
 const access = promisify(fs.access)
 const copy = promisify(ncp)
@@ -36,8 +36,8 @@ const copyFiles = async answers => {
 		// check if template is available
 		await access(templateDir, fs.constants.R_OK)
 
-		return await copyModTemplates(answers.modifications, currentWorkingDir)
-		//return updateAppFile(answers.modifications, currentWorkingDir)
+		await copyModTemplates(answers.modifications, currentWorkingDir)
+		return updateAppFile(answers.modifications, currentWorkingDir)
 	} catch (error) {
 		console.error(error)
 		process.exit(1)

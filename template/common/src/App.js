@@ -1,14 +1,14 @@
 import React from 'react'
-/* import GlobalStyle */
-/* import StoreProvider */
-/* import Routes */
+const GlobalStyle = 'should import'
+const StoreProvider = 'should import'
+const Routes = 'should import'
 
 function App() {
 	return (
 		<>
-			{/* GlobalStyle */}
+			<p>GlobalStyle</p>
 
-			{/* main */}
+			<main>React App!</main>
 		</>
 	)
 }
