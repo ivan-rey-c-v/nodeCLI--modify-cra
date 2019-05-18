@@ -1,4 +1,4 @@
-import styled from 'styled-component/macro'
+import styled from 'styled-components/macro'
 
 const Layout = styled.main`
 	margin: 0 auto;

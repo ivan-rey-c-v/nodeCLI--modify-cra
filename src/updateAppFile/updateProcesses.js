@@ -2,13 +2,13 @@
 
 const updateProcesses = [
 	{
-		mod: 'styled-component',
+		mod: 'styled-components',
 		processes: [
 			{
 				name: 'import GlobalStyle',
 				regex: /const GlobalStyle = 'should import'/g,
 				replacement:
-					"import GlobalStyle from './styled-component/GlobalStyle'",
+					"import GlobalStyle from './styled-components/GlobalStyle'",
 				negativeReplacement: ''
 			},
 			{

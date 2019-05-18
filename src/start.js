@@ -6,6 +6,7 @@ import copyFiles from './copyFiles'
 import removeUnnecessaryFiles from './removeUnnecessaryFiles'
 import updateAppFile from './updateAppFile'
 import prettifyAppFile from './prettifyAppFile'
+import installDependencies from './installDependencies'
 
 async function start(hasDefaultFlag) {
 	const answers = await promptQuestions(hasDefaultFlag)
@@ -32,6 +33,11 @@ async function start(hasDefaultFlag) {
 							{
 								title: 'Format the App.js file',
 								task: () => prettifyAppFile()
+							},
+							{
+								title: 'Add necessary dependencies',
+								task: () =>
+									installDependencies(answers.modifications)
 							}
 						],
 						{
@@ -46,9 +52,7 @@ async function start(hasDefaultFlag) {
 		}
 	)
 
-	console.log(`
-			${chalk.yellow.inverse('Starting to modify this react app')}
-		`)
+	console.log(`${chalk.yellow.inverse('Starting to modify this react app')}`)
 
 	tasks.run().catch(err => {
 		console.error(err)
