@@ -41,6 +41,8 @@ const copyFiles = async answers => {
 	}
 
 	try {
+		console.log('Your modifications are: ', answers.modifications)
+
 		await copyModTemplates(answers.modifications, currentWorkingDir)
 
 		return

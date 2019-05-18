@@ -3,7 +3,6 @@ import execa from 'execa'
 function installDependencies(mods) {
 	const CONTEXT_STORE = 'context-store'
 	const modifications = mods.filter(mod => mod !== CONTEXT_STORE)
-	console.log({ modifications })
 
 	// you may add this as part of cli questions
 	const pkgManager = 'yarn'

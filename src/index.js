@@ -8,7 +8,11 @@ class CLI extends Command {
 		const hasDefaultFlag = flags.default
 
 		// ESM export works with this file
-		start(hasDefaultFlag)
+		await start(hasDefaultFlag)
+
+		this.log(`
+			${chalk.green('Done ✓ - Start Coding!')}
+		`)
 	}
 }
 
