@@ -34,7 +34,7 @@ const updateProcesses = [
 				regex: /<main>React App!<\/main>/g,
 				replacement: `<StoreProvider>
 			<main>React App!<\/main>
-		<StoreProvider/>
+		</StoreProvider>
 				`,
 				negativeReplacement: '<main>React App!</main>'
 			}

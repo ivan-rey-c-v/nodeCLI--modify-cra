@@ -4,7 +4,7 @@ import updateProcesses from './updateProcesses'
 
 const asyncReplace = promisify(replace)
 
-async function updateAppFile(modifications, currentWorkingDir) {
+async function updateAppFile(modifications) {
 	const hasEmptyMods = modifications.length === 0
 
 	if (hasEmptyMods) {
@@ -12,11 +12,10 @@ async function updateAppFile(modifications, currentWorkingDir) {
 	}
 
 	// non-concurrent - one file at a time
-	await updateProcesses.reduce(async (promise, modProcess) => {
+	return updateProcesses.reduce(async (promise, modProcess) => {
 		await promise
 
 		const hasMod = modifications.includes(modProcess.mod)
-		// console.log(modProcess.mod, { hasMod })
 
 		return modProcess.processes.reduce(async (processPromise, process) => {
 			await processPromise
@@ -28,13 +27,6 @@ async function updateAppFile(modifications, currentWorkingDir) {
 			})
 		}, Promise.resolve())
 	}, Promise.resolve())
-
-	// remove all empty lines
-	asyncReplace({
-		files: './src/App.js',
-		from: /^\s*[\r\n]/gm,
-		to: ''
-	})
 }
 
 export default updateAppFile
