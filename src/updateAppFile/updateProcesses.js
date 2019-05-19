@@ -56,7 +56,7 @@ const updateProcesses = [
 				negativeReplacement: `
 					<main>
 						<h1>Hello from React!</h1>
-					<main/>
+					</main>
 				`
 			}
 		]

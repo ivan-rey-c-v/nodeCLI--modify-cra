@@ -3,6 +3,14 @@
 // enables using the import in the files
 require = require('esm')(module /*, options*/)
 
+// ES6 import default !== CommonJS module.exports
+/* 
+	Babel will assign `import default bar` to module.exports.default
+
+	as
+	`var bar = require('./path/to/bar')`
+	bar will have a reference/access to `.default`
+*/
 require('..')
-	.run()
+	.default.run()
 	.catch(require('@oclif/errors/handle'))

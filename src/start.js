@@ -32,6 +32,10 @@ async function start(hasDefaultFlag) {
 								task: () => updateAppFile(answers.modifications)
 							},
 							{
+								title: 'Update the public/index.html',
+								task: () => updateHTMLMeta(answers)
+							},
+							{
 								title: 'Format the src/App.js file',
 								task: () => prettifyAppFile()
 							},
@@ -39,10 +43,6 @@ async function start(hasDefaultFlag) {
 								title: 'Add necessary dependencies',
 								task: () =>
 									installDependencies(answers.modifications)
-							},
-							{
-								title: 'Update the public/index.html',
-								task: () => updateHTMLMeta(answers)
 							}
 						],
 						{
@@ -59,11 +59,7 @@ async function start(hasDefaultFlag) {
 
 	console.log(`${chalk.yellow.inverse('Starting to modify this react app')}`)
 
-	try {
-		await tasks.run()
-	} catch (error) {
-		console.error(error)
-	}
+	return tasks.run()
 }
 
 export default start

@@ -11,6 +11,8 @@ async function updateAppFile(modifications) {
 		return
 	}
 
+	const appFilePath = './src/App.js'
+
 	// non-concurrent - one file at a time
 	return updateProcesses.reduce(async (promise, modProcess) => {
 		await promise
@@ -21,7 +23,7 @@ async function updateAppFile(modifications) {
 			await processPromise
 
 			return asyncReplace({
-				files: './src/App.js',
+				files: appFilePath,
 				from: process.regex,
 				to: hasMod ? process.replacement : process.negativeReplacement
 			})

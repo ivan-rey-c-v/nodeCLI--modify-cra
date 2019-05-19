@@ -12,7 +12,7 @@ export function StoreProvider(props) {
 			state,
 			dispatch
 		}
-	})
+	}, [state, dispatch])
 
 	return <StoreContext.Provider value={value} {...props} />
 }

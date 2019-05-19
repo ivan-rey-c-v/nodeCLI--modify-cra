@@ -8,6 +8,7 @@ function updateMeta(answers) {
 
 	const htmlFilePath = './public/index.html'
 
+	// you may change or add this as questions prompt for users
 	const author = 'ivan.rey.c.v@gmail.com'
 
 	const replacements = [

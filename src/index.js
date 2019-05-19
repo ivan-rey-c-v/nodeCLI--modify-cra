@@ -2,13 +2,22 @@ import { Command, flags } from '@oclif/command'
 import chalk from 'chalk'
 import start from './start'
 
+import commitChanges from './commitChanges'
+
 class CLI extends Command {
 	async run() {
 		const { flags } = this.parse(CLI)
 		const hasDefaultFlag = flags.default
 
-		// ESM export works with this file
-		await start(hasDefaultFlag)
+		try {
+			await start(hasDefaultFlag)
+		} catch (error) {
+			console.error(error)
+		}
+
+		// separate this from tasks in start.js
+		// just commit when all are working and no Errors
+		await commitChanges()
 
 		this.log(`
 			${chalk.green('Done ✓ - Start Coding!')}
@@ -33,8 +42,4 @@ CLI.flags = {
 	})
 }
 
-// - it seems "export default CLI" does not work here (just this file)
-//   even if using the ESM
-// - import above works though
-// - other files have no issue
-module.exports = CLI
+export default CLI

@@ -4,6 +4,10 @@ function installDependencies(mods) {
 	const CONTEXT_STORE = 'context-store'
 	const modifications = mods.filter(mod => mod !== CONTEXT_STORE)
 
+	if (modifications.length === 0) {
+		return
+	}
+
 	// you may add this as part of cli questions
 	const pkgManager = 'yarn'
 	// you may change action if using npm
